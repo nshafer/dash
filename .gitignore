@@ -32,3 +32,6 @@ dash-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# App specific
+dash.toml
+local/

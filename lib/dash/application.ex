@@ -8,16 +8,12 @@ defmodule Dash.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Start the Ecto repository
-      Dash.Repo,
-      # Start the Telemetry supervisor
+      # Dash.Repo,
       DashWeb.Telemetry,
-      # Start the PubSub system
       {Phoenix.PubSub, name: Dash.PubSub},
-      # Start the Endpoint (http/https)
-      DashWeb.Endpoint
-      # Start a worker by calling: Dash.Worker.start_link(arg)
-      # {Dash.Worker, arg}
+      DashWeb.Endpoint,
+      Dash.Adapter.Supervisor,
+      Dash.Central,
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

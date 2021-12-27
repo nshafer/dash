@@ -8,7 +8,9 @@
 import Config
 
 config :dash,
-  ecto_repos: [Dash.Repo]
+  timezone: "America/Phoenix",
+  ecto_repos: [Dash.Repo],
+  fake_api_calls: false
 
 # Configures the endpoint
 config :dash, DashWeb.Endpoint,
@@ -45,6 +47,9 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+# Timezone support
+config :elixir, :time_zone_database, Tzdata.TimeZoneDatabase
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

@@ -76,4 +76,19 @@ http --auth abcd01234:api_token https://api.track.toggl.com/api/v8/projects/1417
 }
 ```
 
+## Client detail
+
+http --auth abcd01234:api_token https://api.track.toggl.com/api/v8/clients/46790827
+
+```json
+{
+    "data": {
+        "at": "2020-01-28T16:30:42+00:00",
+        "id": 46790827,
+        "name": "Company, LLC",
+        "wid": 1352395
+    }
+}
+```
+
 

@@ -1,5 +1,8 @@
 import Config
 
+config :dash,
+  fake_api_calls: true
+
 # Configure your database
 config :dash, Dash.Repo,
   username: "postgres",

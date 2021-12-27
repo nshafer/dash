@@ -17,6 +17,7 @@ defmodule Dash.Adapter.Supervisor do
       {:ok, pid} -> pid
       {:ok, pid, _info} -> pid
       :ignore -> raise "Could not start adapter, :ignore"
+      {:error, {:already_started, pid}} -> pid
       {:error, error} -> raise "Could not start adapter: #{inspect error}"
     end
   end

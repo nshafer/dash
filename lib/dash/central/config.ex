@@ -1,7 +1,12 @@
 defmodule Dash.Central.Config do
   @config_locations ~w(./dash.toml ~/dash.toml /etc/dash.toml)
 
-  defstruct [:goals, :adapters]
+  defstruct [
+    :week_start_day,
+    :week_start_time,
+    :goals,
+    :adapters
+  ]
 
   def load() do
     find_config_file!()
@@ -47,6 +52,8 @@ defmodule Dash.Central.Config do
 
   defp normalize_config(conf) do
     %__MODULE__{
+      week_start_day: conf[:week_start_day] || 1,
+      week_start_time: conf[:week_start_time] || "00:00:00",
       goals: %{
         daily: conf[:goals][:daily] || 8,
         weekly: conf[:goals][:weekly] || 40,
